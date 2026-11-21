@@ -1,0 +1,30 @@
+{
+  "total_images": 204,
+  "splits": {
+    "train": 133,
+    "valid": 31,
+    "test": 40
+  },
+  "classes": {
+    "healthy": 102,
+    "parkinson": 102
+  },
+  "dimensions": {
+    "mean_width": 383.9901960784314,
+    "mean_height": 261.77941176470586,
+    "min_width": 253,
+    "max_width": 512,
+    "min_height": 138,
+    "max_height": 516
+  },
+  "channels": [
+    3
+  ],
+  "formats": [
+    "JPEG"
+  ],
+  "exact_duplicates": 0,
+  "corrupt_files": 0,
+  "total_subject_groups": 28,
+  "subjects_leaked_across_splits": 25
+}

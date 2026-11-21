@@ -1,0 +1,45 @@
+{
+  "best_model": "vgg16",
+  "input_size": [
+    224,
+    224,
+    3
+  ],
+  "class_mapping": {
+    "0": "healthy",
+    "1": "parkinson"
+  },
+  "models": {
+    "cnn": {
+      "architecture": "Custom CNN",
+      "parameters": 6516353,
+      "train_time_sec": 55.4,
+      "test_accuracy": 0.55,
+      "test_f1": 0.7097,
+      "test_recall": 1.0,
+      "test_roc_auc": 0.5,
+      "checkpoint": "cnn_model.pt"
+    },
+    "resnet50": {
+      "architecture": "ResNet50 Transfer Learning",
+      "parameters": 23510081,
+      "train_time_sec": 97.7,
+      "test_accuracy": 0.825,
+      "test_f1": 0.8108,
+      "test_recall": 0.6818,
+      "test_roc_auc": 0.8763,
+      "checkpoint": "resnet50_model.pt"
+    },
+    "vgg16": {
+      "architecture": "VGG16 Transfer Learning",
+      "parameters": 16320449,
+      "train_time_sec": 156.4,
+      "test_accuracy": 0.85,
+      "test_f1": 0.85,
+      "test_recall": 0.7727,
+      "test_roc_auc": 0.8965,
+      "checkpoint": "vgg16_model.pt"
+    }
+  },
+  "created_at": "2026-11-21 22:52:33"
+}
