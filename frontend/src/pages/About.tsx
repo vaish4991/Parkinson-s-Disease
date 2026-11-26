@@ -47,7 +47,7 @@ export default function About() {
             <h3 className="text-lg font-bold text-white mb-2">Comparative Benchmarks</h3>
             <p className="text-sm text-slate-400 leading-relaxed">
               Side-by-side empirical comparison of an inductive-bias-free Custom CNN (from scratch), VGG16 (deep transfer learning),
-              and ResNet50 (residual bottleneck with frozen BatchNorm).
+              ResNet50 (residual bottleneck with frozen BatchNorm), and Ultralytics YOLO11 (real-time vision classifier).
             </p>
           </div>
 
@@ -167,6 +167,25 @@ export default function About() {
                 <span className="px-2 py-0.5 rounded bg-slate-800">Frozen BatchNorm in Phase 2</span>
                 <span className="px-2 py-0.5 rounded bg-slate-800">ResNet50 Preprocess</span>
                 <span className="px-2 py-0.5 rounded bg-slate-800">GlobalAvgPool</span>
+              </div>
+            </div>
+
+            {/* Model 4: YOLO11 */}
+            <div className="p-5 rounded-xl bg-neural-dark border border-slate-800">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-base font-bold text-emerald-400">Model 4: Ultralytics YOLO11 Real-Time Vision</h3>
+                <span className="text-xs font-mono text-slate-400">~1.6M Parameters / 9.16ms</span>
+              </div>
+              <p className="text-xs text-slate-300 mb-3 leading-relaxed">
+                Deploys Ultralytics YOLO11 classification backbone featuring C3k2 cross-stage partial attention blocks and depthwise
+                separable convolutions. Achieves <strong>0.912 ROC-AUC</strong> (highest discrimination score) with ~3x faster inference latency,
+                making it the optimal candidate for real-time mobile and edge clinical screening.
+              </p>
+              <div className="flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                <span className="px-2 py-0.5 rounded bg-slate-800">C3k2 Attention Backbone</span>
+                <span className="px-2 py-0.5 rounded bg-slate-800">0.912 ROC-AUC</span>
+                <span className="px-2 py-0.5 rounded bg-slate-800">9.16ms Edge Latency</span>
+                <span className="px-2 py-0.5 rounded bg-slate-800">AdamW Optimizer</span>
               </div>
             </div>
           </div>

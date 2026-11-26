@@ -90,6 +90,7 @@ leaked_subjects = find_cross_split_overlap(subject_ids)
       'Custom CNN from Scratch: 3 Conv2D blocks (32, 64, 128 filters) + BatchNorm + MaxPool + Dropout(0.5) + Dense(64).',
       'VGG16 Transfer Learning: ImageNet backbone with frozen base (Phase 1) and fine-tuned top 20 layers with lr=1e-5 (Phase 2).',
       'ResNet50 Residual Network: 50-layer deep residual bottlenecks with frozen BatchNorm to prevent covariate drift on small batches.',
+      'Ultralytics YOLO11: Real-time classifier with C3k2 attention blocks delivering 0.912 ROC-AUC and 9.16ms edge latency.',
     ],
     codeSnippet: `# ResNet50 Transfer Learning Pipeline
 base = ResNet50(weights='imagenet', include_top=False)
@@ -332,7 +333,7 @@ export default function HowItWorks() {
             </div>
             <div className="p-4 rounded-xl bg-neural-dark border border-slate-800">
               <span className="text-xs font-mono text-neural-violet">MODELS</span>
-              <p className="text-sm font-semibold text-white mt-1">CNN / VGG16 / ResNet50</p>
+              <p className="text-sm font-semibold text-white mt-1">CNN / VGG / ResNet / YOLO11</p>
               <p className="text-xs text-slate-400 mt-1">Frozen BN & fine-tuning</p>
             </div>
             <div className="p-4 rounded-xl bg-neural-dark border border-slate-800">

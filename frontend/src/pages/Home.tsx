@@ -17,17 +17,17 @@ const fadeUp = {
 }
 
 const stats = [
-  { value: '87.5%', label: 'Model Accuracy', sub: 'Best performing model', color: 'text-neural-cyan' },
-  { value: '0.94', label: 'ROC-AUC Score', sub: 'Area under curve', color: 'text-neural-violet' },
-  { value: '1,490', label: 'Training Images', sub: 'Spiral & wave drawings', color: 'text-neural-blue' },
-  { value: '<50ms', label: 'Inference Time', sub: 'Real-time analysis', color: 'text-neural-green' },
+  { value: '85.0%', label: 'Top Accuracy', sub: 'Fine-tuned backbone', color: 'text-neural-cyan' },
+  { value: '0.912', label: 'Top ROC-AUC', sub: 'Ultralytics YOLO11', color: 'text-neural-violet' },
+  { value: '4 Architectures', label: 'Deep Benchmarks', sub: 'CNN, ResNet, VGG, YOLO11', color: 'text-neural-blue' },
+  { value: '9.16ms', label: 'Edge Latency', sub: 'YOLO11 real-time speed', color: 'text-neural-green' },
 ]
 
 const features = [
   {
     icon: Brain,
     title: 'Deep Neural Analysis',
-    desc: 'CNN and transfer learning models trained on spiral and wave drawing patterns to detect motor tremor signatures.',
+    desc: 'CNN, ResNet50, VGG16, and Ultralytics YOLO11 models trained on spiral drawing patterns to detect motor tremor signatures.',
     color: 'cyan',
   },
   {

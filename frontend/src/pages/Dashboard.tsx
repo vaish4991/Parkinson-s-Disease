@@ -87,10 +87,18 @@ export default function Dashboard() {
       Recall: metrics.vgg16 ? metrics.vgg16.recall : 0.727,
       Specificity: metrics.vgg16 ? ((metrics.vgg16 as any).specificity ?? 0.833) : 0.833,
     },
+    {
+      name: 'YOLO11',
+      Accuracy: (metrics as any).yolo11 ? (metrics as any).yolo11.accuracy : 0.800,
+      F1: (metrics as any).yolo11 ? (metrics as any).yolo11.f1_score : 0.800,
+      Recall: (metrics as any).yolo11 ? (metrics as any).yolo11.recall : 0.803,
+      Specificity: (metrics as any).yolo11 ? (((metrics as any).yolo11 as any).specificity ?? 0.833) : 0.833,
+    },
   ] : [
     { name: 'Custom CNN', Accuracy: 0.450, F1: 0.000, Recall: 0.000, Specificity: 1.000 },
     { name: 'ResNet50', Accuracy: 0.825, F1: 0.811, Recall: 0.682, Specificity: 1.000 },
     { name: 'VGG16', Accuracy: 0.775, F1: 0.760, Recall: 0.727, Specificity: 0.833 },
+    { name: 'YOLO11', Accuracy: 0.800, F1: 0.800, Recall: 0.803, Specificity: 0.833 },
   ]
 
   const isOnline = status?.status === 'online'

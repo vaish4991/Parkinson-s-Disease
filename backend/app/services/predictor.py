@@ -46,9 +46,20 @@ def predict(image_bytes: bytes, model_name: str = "best") -> dict:
     if model is None:
         raise ValueError("Selected model is not available in artifacts directory.")
 
-    tensor_input = preprocess_image_tensor(image_bytes, framework)
-
-    if framework == "pytorch":
+    if framework == "ultralytics":
+        img = Image.open(io.BytesIO(image_bytes))
+        img = ImageOps.exif_transpose(img)
+        img = img.convert("RGB")
+        res = model.predict(img, verbose=False)[0]
+        probs = res.probs
+        parkinson_idx = 1
+        for idx, name in res.names.items():
+            if "parkinson" in str(name).lower():
+                parkinson_idx = idx
+                break
+        prob = float(probs.data[parkinson_idx].cpu().item())
+    elif framework == "pytorch":
+        tensor_input = preprocess_image_tensor(image_bytes, framework)
         device = next(model.parameters()).device
         tensor_input = tensor_input.to(device)
         model.eval()
@@ -56,6 +67,7 @@ def predict(image_bytes: bytes, model_name: str = "best") -> dict:
             out = model(tensor_input)
             prob = float(torch.sigmoid(out).cpu().item())
     elif framework == "tensorflow":
+        tensor_input = preprocess_image_tensor(image_bytes, framework)
         prob = float(model.predict(tensor_input, verbose=0)[0][0])
     else:
         raise ValueError(f"Unsupported framework: {framework}")

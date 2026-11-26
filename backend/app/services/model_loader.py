@@ -21,6 +21,11 @@ except ImportError:
     nn = None
     models = None
 
+try:
+    from ultralytics import YOLO
+except ImportError:
+    YOLO = None
+
 
 class CustomCNN(nn.Module if nn else object):
     def __init__(self):
@@ -141,6 +146,22 @@ class ModelLoader:
                         logger.info(f"Loaded TensorFlow model '{name}' from {p}")
                     except Exception as e:
                         logger.error(f"Failed to load TF model '{name}': {e}")
+
+        # 3. Attempt YOLO11 Model Loading if present
+        if YOLO is not None:
+            yolo_candidates = [
+                artifacts_dir / "yolo11_model.pt",
+                Path(__file__).resolve().parent.parent.parent.parent / "yolo11" / "weights" / "best.pt",
+            ]
+            for yp in yolo_candidates:
+                if yp.exists():
+                    try:
+                        cls._models["yolo11"] = YOLO(str(yp))
+                        cls._model_frameworks["yolo11"] = "ultralytics"
+                        logger.info(f"Loaded YOLO11 model from {yp}")
+                        break
+                    except Exception as e:
+                        logger.warning(f"Could not load YOLO11 model from {yp}: {e}")
 
         # Load metadata JSON
         meta_path = artifacts_dir / "model_metadata.json"
