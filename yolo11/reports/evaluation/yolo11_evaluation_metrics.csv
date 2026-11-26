@@ -1,0 +1,2 @@
+Model,Accuracy,Precision,Recall,F1_Score,Specificity,ROC_AUC,Avg_Latency_ms
+YOLO11-cls,0.8,0.8,0.803,0.7995,0.8333,0.9116,9.16

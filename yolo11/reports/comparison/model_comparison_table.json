@@ -1,0 +1,54 @@
+[
+  {
+    "Model": "Custom CNN (Scratch)",
+    "Key": "cnn",
+    "Architecture": "3 Conv Blocks + Dropout",
+    "Accuracy": 0.55,
+    "Precision": 0.55,
+    "Recall": 1.0,
+    "F1_Score": 0.7097,
+    "Specificity": 0.0,
+    "ROC_AUC": 0.5,
+    "Latency_ms": 13.8,
+    "Type": "Custom Baseline"
+  },
+  {
+    "Model": "ResNet50 (Fine-Tuned)",
+    "Key": "resnet50",
+    "Architecture": "50-Layer Residual Bottleneck",
+    "Accuracy": 0.825,
+    "Precision": 1.0,
+    "Recall": 0.6818,
+    "F1_Score": 0.8108,
+    "Specificity": 1.0,
+    "ROC_AUC": 0.8763,
+    "Latency_ms": 28.5,
+    "Type": "Residual Transfer"
+  },
+  {
+    "Model": "VGG16 (Fine-Tuned)",
+    "Key": "vgg16",
+    "Architecture": "16-Layer Sequential Backbone",
+    "Accuracy": 0.85,
+    "Precision": 0.9444,
+    "Recall": 0.7727,
+    "F1_Score": 0.85,
+    "Specificity": 0.9444,
+    "ROC_AUC": 0.8965,
+    "Latency_ms": 35.2,
+    "Type": "Sequential Transfer"
+  },
+  {
+    "Model": "Ultralytics YOLO11",
+    "Key": "yolo11",
+    "Architecture": "YOLO11 C3k2 Vision Backbone",
+    "Accuracy": 0.8,
+    "Precision": 0.8,
+    "Recall": 0.803,
+    "F1_Score": 0.7995,
+    "Specificity": 0.8333,
+    "ROC_AUC": 0.9116,
+    "Latency_ms": 9.16,
+    "Type": "Real-Time SOTA"
+  }
+]

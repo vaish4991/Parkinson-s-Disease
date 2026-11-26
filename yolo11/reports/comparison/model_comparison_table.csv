@@ -1,0 +1,5 @@
+Model,Key,Architecture,Accuracy,Precision,Recall,F1_Score,Specificity,ROC_AUC,Latency_ms,Type
+VGG16 (Fine-Tuned),vgg16,16-Layer Sequential Backbone,0.85,0.9444,0.7727,0.85,0.9444,0.8965,35.2,Sequential Transfer
+ResNet50 (Fine-Tuned),resnet50,50-Layer Residual Bottleneck,0.825,1.0,0.6818,0.8108,1.0,0.8763,28.5,Residual Transfer
+Ultralytics YOLO11,yolo11,YOLO11 C3k2 Vision Backbone,0.8,0.8,0.803,0.7995,0.8333,0.9116,9.16,Real-Time SOTA
+Custom CNN (Scratch),cnn,3 Conv Blocks + Dropout,0.55,0.55,1.0,0.7097,0.0,0.5,13.8,Custom Baseline

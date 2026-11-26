@@ -1,0 +1,33 @@
+{
+  "dataset_name": "Parkinson's Disease Spiral Drawing Dataset",
+  "total_images": 204,
+  "classes": {
+    "healthy": 102,
+    "parkinson": 102
+  },
+  "balance_ratio": "102:102 (1:1)",
+  "splits": {
+    "train": {
+      "healthy": 65,
+      "parkinson": 68,
+      "total": 133
+    },
+    "valid": {
+      "healthy": 19,
+      "parkinson": 12,
+      "total": 31
+    },
+    "test": {
+      "healthy": 18,
+      "parkinson": 22,
+      "total": 40
+    }
+  },
+  "corrupted_images": 0,
+  "duplicate_images": 0,
+  "mean_intensity": {
+    "healthy": 231.14186231892575,
+    "parkinson": 229.7317573120352
+  },
+  "recommendation": "Use 224x224 RGB image normalization with spatial augmentations (rotations, mild shear, horizontal flip) for YOLO11 transfer learning."
+}

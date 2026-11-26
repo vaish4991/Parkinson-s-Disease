@@ -33,10 +33,11 @@
 
 Parkinson's disease (PD) is characterized by insidious neurodegeneration of dopaminergic neurons in the substantia nigra, precipitating progressive resting tremors, rigidity, bradykinesia, and micrographia. Hand-drawn spirals and meanders reveal micro-tremors and kinematic dysregulation long before overt clinical onset.
 
-**NEUROSCAN AI** benchmarks three deep convolutional learning paradigms against 204 digitized drawings:
+**NEUROSCAN AI** benchmarks four deep convolutional and attention-based learning paradigms against 204 digitized drawings:
 1. **Custom CNN from Scratch**: Baseline model with 3 convolutional blocks, batch normalization, spatial dropout, and dense heads.
 2. **VGG16 Transfer Learning**: Deep 16-layer representation utilizing ImageNet features with fine-tuned top convolutional layers.
 3. **ResNet50 Residual Architecture**: 50-layer deep bottleneck residual network with frozen Batch Normalization to prevent small-batch covariate shift.
+4. **Ultralytics YOLO11**: Real-time vision classifier with C3k2 cross-stage attention blocks, delivering highest discrimination (0.9116 ROC-AUC) and 9.16ms edge latency.
 
 ---
 
@@ -164,11 +165,12 @@ $$\text{Specificity} = \frac{\text{TN}}{\text{TN} + \text{FP}}$$
 $$\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$$
 
 ### Held-Out Test Set Performance:
-| Architecture | Test Accuracy | Precision | Recall (Sens.) | F1-Score | Specificity | ROC-AUC | Parameters |
-|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **ResNet50 (Best)** | **82.50%** | **100.0%** | **68.18%** | **0.8108** | **100.0%** | **0.8889** | 23.5M |
-| **VGG16** | 77.50% | 80.00% | 72.73% | 0.7600 | 83.33% | 0.8409 | 14.7M |
-| **Custom CNN** | 45.00% | 0.00% | 0.00% | 0.0000 | 100.0% | 0.2778 | 6.5M |
+| Architecture | Test Accuracy | Precision | Recall (Sens.) | F1-Score | Specificity | ROC-AUC | Parameters | Latency |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **VGG16** | 85.00% | 94.44% | 77.27% | 0.8500 | 94.44% | 0.8965 | 16.3M | 35.2 ms |
+| **ResNet50** | 82.50% | 100.0% | 68.18% | 0.8108 | 100.0% | 0.8763 | 23.5M | 28.5 ms |
+| **Ultralytics YOLO11** | 80.00% | 80.00% | 80.30% | 0.7995 | 83.33% | **0.9116** | **1.6M** | **9.16 ms** |
+| **Custom CNN** | 55.00% | 55.00% | 100.0% | 0.7097 | 0.00% | 0.5000 | 6.5M | 13.8 ms |
 
 ### Best Model Selection:
 **ResNet50** was selected as the primary production model based on validation F1-score and zero false positives (100% specificity on healthy controls). The custom CNN trained from scratch on 133 images suffered from severe underfitting due to the lack of pre-learned edge representations.
